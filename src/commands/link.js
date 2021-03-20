@@ -4,28 +4,27 @@ const makeQuery = require('../plugins/makeQuery');
 const replies = [
 	'Your links are being stored somewhere and I won\'t tell you where.',
 	'Thank you for adding this useful information.',
-	'Now your are free from worying, where do store my chrome tabs'
-]
+	'Now your are free from worying, where do I store my chrome tabs',
+];
 
 module.exports = async (msg, args) => {
-	makeQuery('Random Data');
 	const msgAuthor = msg.author;
 	const msgContent = msg.content.substr(6, msg.content.length);
 	if (!msgContent.includes('https' || 'http')) return;
-	let url = '';
+	let uri = '';
 	args.forEach(element => {
 		if (element.includes('https' || 'http')) {
-			url = element;
+			uri = element;
 		}
 	});
 	const node = {
-		'id': Math.random(10),
-		'user': msgAuthor.username,
 		'userId': msgAuthor.id,
+		'username': msgAuthor.username,
 		'discriminator': msgAuthor.discriminator,
 		'message': msgContent,
-		'url': url
+		'uri': uri,
 	};
-	console.log(node);
+	const generatedQuery = makeQuery(node);
+	neo4j(generatedQuery);
 	await msg.channel.send(replies[Math.floor(Math.random() * (3))]);
 };
