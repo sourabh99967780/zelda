@@ -1,9 +1,9 @@
 const link = require('./link');
-const photu = require('./photu');
+const photo = require('./photo');
 
 const commands = {
 	link,
-	'photu': photu,
+	'photo': photo,
 };
 
 module.exports = (msg) => {
