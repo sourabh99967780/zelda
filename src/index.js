@@ -14,7 +14,8 @@ client.on('error', m => logger.log('error', m));
 process.on('uncaughtException', error => logger.log('error', error));
 
 client.on('guildMemberAdd', member => {
-	member.guild.channels.get('channelID').send(`Hey ${member.user.username}, Zelda Welcomes you to this prestigious server`);
+	member.guild.channels.get('channelID')
+		.send(`Hey ${member.user.username}, Zelda Welcomes you to this prestigious server`);
 });
 
 client.on('message', commandHandler);
