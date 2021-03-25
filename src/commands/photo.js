@@ -7,11 +7,10 @@ module.exports = (msg, args) => {
 
 	if (args.length) {
 		if (args[0] == 'help') {
-			const embedObj = embed.setColor('#0099ff')
-				.setTitle('Some title')
-				.setURL('https://discord.js.org/')
-				.setAuthor('Some name', 'https://i.imgur.com/wSTFkRM.png', 'https://discord.js.org')
-				.setDescription('Some description here')
+			const embedObj = embed.setColor('#F2E863')
+				.setTitle('Zelda Help Terminus')
+				.setAuthor('Sourabh Kumar', 'https://i.imgur.com/wSTFkRM.png')
+				.setDescription('What is photo command capable of ?')
 				.setThumbnail('https://i.imgur.com/wSTFkRM.png')
 				.addFields(
 					{ name: 'Regular field title', value: 'Some value here' },
