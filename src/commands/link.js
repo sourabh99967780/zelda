@@ -24,7 +24,7 @@ module.exports = async (msg, args) => {
     uri: uri,
   };
   console.log(node);
-  const generatedQuery = makeQuery(node);
+  const generatedQuery = makeQuery.createVistedLinkQuery(node);
   neo4j(generatedQuery);
   await msg.channel.send(replies[Math.floor(Math.random() * 3)]);
 };
