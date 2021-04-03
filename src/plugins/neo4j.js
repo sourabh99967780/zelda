@@ -1,10 +1,10 @@
 const neo4j = require('neo4j-driver');
 require('dotenv').config();
 
-module.exports = async (query) => {
+module.exports = async (query, neo4jInstance = 'prod') => {
 	// Connect neo4j driver
 	const driver = neo4j.driver(
-		process.env.NEO4J_URI,
+		neo4jInstance == 'prod' ? process.env.NEO4J_URI : process.env.NEO4J_URI_STAGING,
 		neo4j.auth.basic(process.env.NEO4J_USER, process.env.NEO4J_PASSWORD),
 	);
 	const session = driver.session();

@@ -1,9 +1,11 @@
 const link = require('./link');
 const photo = require('./photo');
+const data = require('./data');
 
 const commands = {
 	link,
 	'photo': photo,
+	data,
 };
 
 module.exports = (msg) => {

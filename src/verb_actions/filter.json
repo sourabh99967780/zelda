@@ -1,0 +1,9 @@
+{
+    "whitelist" : [
+        "SEARCHED_FOR",
+        "VISITED"
+    ],
+    "blacklist": [
+        
+    ]
+}
